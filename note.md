@@ -98,3 +98,34 @@ export default defineConfig([
     },
 ]);
 ```
+
+
+## Hướng dẫn cách design Frontend 
+- Variant là các biến thể của một component. Khi truyền các thông tin khác nhau vào cùng 1 props, nó sẽ 
+cho ra nhiều loại UI khác nhau. Chúng ta viết ít code hơn và chuyên nghiệp hơn, dễ dàng tái sử dụng hơn 
+- Ưu tiên design các biến thể (variant) trước (Ví dụ button)  
+### Cú pháp cn 
+- cn là tailwind merge, một hàm dùng để gộp các class của tailwind lại với nhau 
+```
+bun add clsx tailwind-merge 
+```
+- Khai báo cn trong folder lib/uttls.ts. 
+### Cú pháp cva 
+- Là một cách làm hiện đại để khai báo và sử dụng biển thể 
+```js
+const buttonVariants = cva(
+  "inline-flex text-black flex items-center justify-between", 
+  variants: { ... }, 
+  compoundVariants: [
+    { ... }, 
+    { ... }
+  ], 
+  defaultVariant: {
+    variant : primary, 
+    size: md, 
+    color: white .... 
+  }
+) 
+```
+
+## Sử dụng trong component 
