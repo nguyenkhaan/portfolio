@@ -21,3 +21,9 @@
     background: var(--color-bg); 
     top: -1px 
 }
+.marquee-text {
+    -webkit-text-stroke: 4px var(--color-text);
+    color: transparent; 
+    font-size: 120px;
+    paint-order: stroke;
+}

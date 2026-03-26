@@ -4,6 +4,7 @@ import Heading from '@/src/shared/components/Header';
 import Image from 'next/image';
 import SkillsCard from './SkillTable';
 import { mySkills } from '@/src/shared/constants/me.constants';
+import Marquee from '@/src/shared/components/Marquee';
 const HomeSection = () => {
     return (
         <LandingLayout
@@ -12,7 +13,7 @@ const HomeSection = () => {
             id={NavbarMenuItems[0].link}
         >
             <div className="flex justify-between items-center gap-36">
-                <div className='flex flex-col gap-4 text-gray text-base'>
+                <div className="flex flex-col gap-4 text-gray text-base">
                     <p>Hello, i’m Elias!</p>
                     <p>
                         I’m a self-taught front-end developer based in Kyiv,
@@ -28,17 +29,36 @@ const HomeSection = () => {
                         frameworks.
                     </p>
                 </div>
-                <Image height={500} width={340} alt='' src={'/images/avatar.png'}  /> 
+                <Image
+                    height={500}
+                    width={340}
+                    alt=""
+                    src={'/images/avatar.png'}
+                />
             </div>
-            <div className='my-10'>
-                <Heading className='mb-4'>skills</Heading>
-                <div className='w-full min-h-100 grid grid-cols-5 grid-rows-2 justify-between gap-5 gap-y-6 items-start'>
-                    {
-                        mySkills.map((skill) => {
-                            return <SkillsCard title={skill.title} skills={skill.details}   /> 
-                        })
-                    }
+            <div className="my-10">
+                <Heading className="mb-4">skills</Heading>
+                <div className="w-full grid grid-cols-5 grid-rows-1 justify-between gap-5 gap-y-6 items-start">
+                    {mySkills.map((skill) => {
+                        return (
+                            <SkillsCard
+                                title={skill.title}
+                                skills={skill.details}
+                            />
+                        );
+                    })}
                 </div>
+            </div>
+            <div className="mx-auto my-6">
+                <Marquee text=" Javascript </> Java Python Postgres-SQL ☁︎ ˚｡⋆｡˚☽˚｡⋆ " speed={2} />
+                <Marquee
+                    text="𖤓 ExpressJS Nestjs ReactJS </> NextJS DevOps"
+                    speed={2}
+                    reverse={true}
+                />
+            </div>
+            <div className='min-h-100 bg-red-500 w-full'>
+
             </div>
         </LandingLayout>
     );
