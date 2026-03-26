@@ -17,7 +17,7 @@ const Marquee = ({ text = '', speed = 0  , reverse = false }) => {
 
     };
     return (
-        <div className="w-[200vw] -translate-x-1/2 overflow-x-hidden flex whitespace-nowrap select-none my-3">
+        <div className="w-[200vw] -translate-x-1/2 overflow-x-hidden flex whitespace-nowrap select-none my-3 overflow-y-hidden">
             <motion.div
                 className="flex shrink-0 items-center"
                 variants={framerVariants}
@@ -32,7 +32,7 @@ const Marquee = ({ text = '', speed = 0  , reverse = false }) => {
                 </span>
             </motion.div>
             <motion.div
-                className="flex shrink-0 items-center"
+                className="flex shrink-0 items-center overflow-y-hidden"
                 variants={framerVariants}
                 animate="marquee"
             >

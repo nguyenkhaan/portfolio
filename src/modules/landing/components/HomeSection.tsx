@@ -5,6 +5,7 @@ import Image from 'next/image';
 import SkillsCard from './SkillTable';
 import { mySkills } from '@/src/shared/constants/me.constants';
 import Marquee from '@/src/shared/components/Marquee';
+import FunfactItem from './FunFact';
 const HomeSection = () => {
     return (
         <LandingLayout
@@ -39,9 +40,10 @@ const HomeSection = () => {
             <div className="my-10">
                 <Heading className="mb-4">skills</Heading>
                 <div className="w-full grid grid-cols-5 grid-rows-1 justify-between gap-5 gap-y-6 items-start">
-                    {mySkills.map((skill) => {
+                    {mySkills.map((skill, index) => {
                         return (
                             <SkillsCard
+                                key={index}
                                 title={skill.title}
                                 skills={skill.details}
                             />
@@ -50,15 +52,54 @@ const HomeSection = () => {
                 </div>
             </div>
             <div className="mx-auto my-6">
-                <Marquee text=" Javascript </> Java Python Postgres-SQL ☁︎ ˚｡⋆｡˚☽˚｡⋆ " speed={2} />
+                <Marquee
+                    text=" Javascript </> Java Python Postgres-SQL ☁︎ ˚｡⋆｡˚☽˚｡⋆ "
+                    speed={2}
+                />
                 <Marquee
                     text="𖤓 ExpressJS Nestjs ReactJS </> NextJS DevOps"
                     speed={2}
                     reverse={true}
                 />
             </div>
-            <div className='min-h-100 bg-red-500 w-full'>
-
+            <div className="flex flex-col gap-4 items-start w-fit">
+                <Heading className="mb-4">my-fun-facts</Heading>
+                <div className="flex gap-4 w-fit">
+                    <FunfactItem
+                        typoColor={'white'}
+                        fact="I love Mini Cloudyyyyy very much"
+                    />
+                    <FunfactItem
+                        typoColor={'gray'}
+                        fact="I like winter more than summer"
+                    />
+                </div>
+                <div className="flex gap-4 w-fit">
+                    <FunfactItem
+                        typoColor={'gray'}
+                        fact="I am playing Yugioh. My partner: Crystron K9, Dracotail, Branded"
+                    />
+                    <FunfactItem
+                        typoColor={'white'}
+                        fact="I was in Khanh Hoa, VietNam"
+                    />
+                </div>
+                <div className="flex gap-4 w-fit">
+                    <FunfactItem
+                        typoColor={'white'}
+                        fact="Recently, I love traveling"
+                    />
+                    <FunfactItem
+                        typoColor={'white'}
+                        fact="I was still in school"
+                    />
+                </div>
+                              <div className="flex gap-4 w-fit">
+                    <FunfactItem
+                        typoColor={'gray'}
+                        fact="I always wanna become a Hero"
+                    />
+                </div>
             </div>
         </LandingLayout>
     );
