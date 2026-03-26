@@ -18,7 +18,7 @@ const ProjectCard = ({
                     
             </div> 
             <div className="grow-0 w-full">
-                <div className="text-base px-3 py-2 w-full border-y border-y-white">
+                <div className="text-base px-3 py-2 w-full border-y text-gray border-y-white">
                     {techstack}
                 </div>
                 <div className="p-3">
