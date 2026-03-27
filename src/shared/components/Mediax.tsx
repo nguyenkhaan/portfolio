@@ -31,7 +31,7 @@ export default function Media({
         <div
             className={cn(
                 MediaVariants({ typoSize }),
-                'flex items-center justify-between gap-2 w-fit whitespace-nowrap',
+                'flex items-center justify-between w-fit whitespace-nowrap',
                 className
             )}
             {...props}

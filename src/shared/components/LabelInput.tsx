@@ -3,7 +3,7 @@ import { HTMLAttributes, useState } from 'react';
 import { cn } from '../lib/ultis';
 import { cva , VariantProps} from 'class-variance-authority';
 const LabelInputVariants = cva(
-    "relative h-10 text-text w-60", 
+    "relative h-10 text-text", 
     {
         variants : {
             typoSize: {
@@ -18,18 +18,18 @@ const LabelInputVariants = cva(
     } 
 )
 export interface LabelInputProps extends HTMLAttributes<HTMLButtonElement>, VariantProps<typeof LabelInputVariants> {
+    labelText : string 
 }  
 const LabelInput = ({
-    className , typoSize 
+    className , typoSize , labelText 
 } : LabelInputProps) => {
     const [value, setValue] = useState('');
-    console.log(value)
     return (
-        <div className={cn('entryarea' ,  LabelInputVariants( { typoSize } ) , className)}>
+        <div className={cn('entryarea w-full block' ,  LabelInputVariants( { typoSize } ) , className)}>
             <input
                 type="text"
                 className={cn(
-                    'label-input absolute outline-0 h-10 w-full p-4 border',
+                    'label-input w-full absolute outline-0 h-10 p-4 border',
                 )}
                 onChange={(e) => setValue(e.target.value)}
             />
@@ -39,7 +39,7 @@ const LabelInput = ({
                     (value.length == 0 ? '' : 'fill'),
                 )}
             >
-                Email
+                {labelText}
             </span>
         </div>
     );

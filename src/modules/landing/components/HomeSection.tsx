@@ -6,6 +6,7 @@ import SkillsCard from './SkillTable';
 import { mySkills } from '@/src/shared/constants/me.constants';
 import Marquee from '@/src/shared/components/Marquee';
 import FunfactItem from './FunFact';
+import Button from '@/src/shared/components/Button';
 const HomeSection = () => {
     return (
         <LandingLayout
@@ -29,6 +30,11 @@ const HomeSection = () => {
                         always strive to learn about the newest technologies and
                         frameworks.
                     </p>
+                    <div  className='my-3 flex items-end justify-end w-full'>
+                        <Button>
+                            Download my CV
+                        </Button>
+                    </div>
                 </div>
                 <Image
                     height={500}
@@ -94,7 +100,7 @@ const HomeSection = () => {
                         fact="I was still in school"
                     />
                 </div>
-                              <div className="flex gap-4 w-fit">
+                <div className="flex gap-4 w-fit">
                     <FunfactItem
                         typoColor={'gray'}
                         fact="I always wanna become a Hero"
