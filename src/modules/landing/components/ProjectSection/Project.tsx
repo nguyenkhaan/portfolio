@@ -1,12 +1,12 @@
 import { NavbarMenuItems } from '@/src/shared/constants/app.constants';
-import LandingLayout from '../layouts/LandingLayout';
+import LandingLayout from '../../layouts/LandingLayout';
 import Heading from '@/src/shared/components/Header';
-import ProjectCard from './CompleteProject';
+import ProjectCard from '../CompleteProject';
 import {
     CompleteProjects,
     SmallProjects,
 } from '@/src/shared/constants/me.constants';
-import SmallProjectCard from './SmallProject';
+import SmallProjectCard from '../SmallProject';
 const ProjectSection = () => {
     return (
         <LandingLayout

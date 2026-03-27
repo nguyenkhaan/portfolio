@@ -1,6 +1,6 @@
-import ContactSection from "../modules/landing/components/ContactSection"
-import HomeSection from "../modules/landing/components/HomeSection"
-import ProjectSection from "../modules/landing/components/Project"
+import ContactSection from "../modules/landing/components/ContactSection/ContactSection" 
+import HomeSection from "../modules/landing/components/HomeSection/HomeSection"
+import ProjectSection from "../modules/landing/components/ProjectSection/Project"
 const Home = () => 
 {
   return (

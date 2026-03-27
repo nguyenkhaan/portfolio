@@ -1,48 +1,76 @@
-import LandingLayout from '../layouts/LandingLayout';
+'use client';
+import LandingLayout from '../../layouts/LandingLayout';
 import { NavbarMenuItems } from '@/src/shared/constants/app.constants';
 import Heading from '@/src/shared/components/Header';
 import Image from 'next/image';
-import SkillsCard from './SkillTable';
+import SkillsCard from '../SkillTable';
 import { mySkills } from '@/src/shared/constants/me.constants';
 import Marquee from '@/src/shared/components/Marquee';
-import FunfactItem from './FunFact';
+import FunfactItem from '../FunFact';
 import Button from '@/src/shared/components/Button';
+import { motion } from 'framer-motion';
+import {
+    avatarCardAnimation,
+    containerAnimation,
+    itemContainerAnimation,
+} from './home.animations';
 const HomeSection = () => {
+    const MotionImage = motion(Image);
     return (
         <LandingLayout
             title="about-me"
             shortDescription="Who am I?"
             id={NavbarMenuItems[0].link}
         >
-            <div className="flex justify-between items-center gap-36">
+            <motion.div
+                className="flex justify-between items-center gap-36"
+                variants={containerAnimation}
+                initial="hidden"
+                animate="visible"
+            >
                 <div className="flex flex-col gap-4 text-gray text-base">
-                    <p>Hello, i’m Elias!</p>
-                    <p>
+                    <motion.p variants={itemContainerAnimation}>
+                        Hello, i’m Elias!
+                    </motion.p>
+                    <motion.p variants={itemContainerAnimation}>
                         I’m a self-taught front-end developer based in Kyiv,
                         Ukraine. I can develop responsive websites from scratch
                         and raise them into modern user-friendly web
                         experiences.
-                    </p>
-                    <p>
+                    </motion.p>
+                    <motion.p variants={itemContainerAnimation}>
                         Transforming my creativity and knowledge into a websites
                         has been my passion for over a year. I have been helping
                         various clients to establish their presence online. I
                         always strive to learn about the newest technologies and
                         frameworks.
-                    </p>
-                    <div  className='my-3 flex items-end justify-end w-full'>
-                        <Button>
-                            Download my CV
-                        </Button>
+                    </motion.p>
+                    <div className="my-3 flex items-end justify-end w-full">
+                        <Button>Download my CV</Button>
                     </div>
                 </div>
-                <Image
+                <MotionImage
+                    style={{
+                        // perspective: 10000,
+                        transformStyle: 'preserve-3d',
+                    }}
+                    variants={avatarCardAnimation}
                     height={500}
                     width={340}
                     alt=""
+                    className="cursor-pointer"
+                    loading="eager"
                     src={'/images/avatar.png'}
+                    animate={{
+                        y: [0, -16, 0],
+                    }}
+                    transition={{
+                        duration: 2.5,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                    }}
                 />
-            </div>
+            </motion.div>
             <div className="my-10">
                 <Heading className="mb-4">skills</Heading>
                 <div className="w-full grid grid-cols-5 grid-rows-1 justify-between gap-5 gap-y-6 items-start">

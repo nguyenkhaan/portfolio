@@ -1,5 +1,5 @@
 import Input from '@/src/shared/components/Input';
-import LandingLayout from '../layouts/LandingLayout';
+import LandingLayout from '../../layouts/LandingLayout';
 import { NavbarMenuItems } from '@/src/shared/constants/app.constants';
 import LabelInput from '@/src/shared/components/LabelInput';
 import TextArea from '@/src/shared/components/TextArea';
