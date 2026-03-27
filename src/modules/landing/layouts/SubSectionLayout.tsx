@@ -1,17 +1,16 @@
-import { HTMLAttributes } from "react"
-import { cn } from "@/src/shared/lib/ultis"
+import { HTMLAttributes } from 'react';
+import { cn } from '@/src/shared/lib/ultis';
 
-export interface SubSectionLayoutProps extends HTMLAttributes<HTMLElement> {} 
+export interface SubSectionLayoutProps extends HTMLAttributes<HTMLElement> {}
 const SubSectionLayout = ({
-    children, 
-    className , 
-    ...props 
-} : SubSectionLayoutProps) => 
-{
+    children,
+    className,
+    ...props
+}: SubSectionLayoutProps) => {
     return (
-        <div {...props} className={cn('w-full' , className)} >
+        <div {...props} className={cn('w-full', className)}>
             {children}
         </div>
-    )
-}
-export default SubSectionLayout
+    );
+};
+export default SubSectionLayout;

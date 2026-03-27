@@ -1,5 +1,7 @@
-Hướng dẫn cách setup eslint + husky cho dự án 
-## 1. Cài đặt husky + commit-lint 
+Hướng dẫn cách setup eslint + husky cho dự án
+
+## 1. Cài đặt husky + commit-lint
+
 ```
 bun add husky @commitlint/cli @commitlint/config-conventional
 ```
@@ -13,25 +15,29 @@ echo "npx --no -- commitlint --edit ${1}" > .husky/commit-msg
 ```
 echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
 ```
-- Vào file package.json. Thêm các dòng sau: 
+
+- Vào file package.json. Thêm các dòng sau:
 
 ```
-type : "module" 
+type : "module"
 
 ```
 
-## 2. Cài đặt kiểm tra biến tào lao 
+## 2. Cài đặt kiểm tra biến tào lao
 
 ```
 bun add -D eslint prettier eslint-config-prettier eslint-plugin-prettier lint-staged
 ```
-- Trong folder .husky, tạo file pre-commit. Bên trong chứa câu lệnh sau: 
+
+- Trong folder .husky, tạo file pre-commit. Bên trong chứa câu lệnh sau:
+
 ```
 npx lint-staged
 ```
 
-- File .eslintrc.json 
-```js 
+- File .eslintrc.json
+
+```js
 {
   "extends": [
     "next/core-web-vitals",
@@ -47,7 +53,9 @@ npx lint-staged
   }
 }
 ```
+
 - File .prettierrc
+
 ```js
 {
     "semi": true,
@@ -57,9 +65,11 @@ npx lint-staged
     "trailingComma": "all"
 }
 
-``` 
-- Thêm vào package.json 
-```js 
+```
+
+- Thêm vào package.json
+
+```js
 {
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -70,8 +80,9 @@ npx lint-staged
 }
 ```
 
-- File eslint.config.js 
-```js 
+- File eslint.config.js
+
+```js
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -99,33 +110,40 @@ export default defineConfig([
 ]);
 ```
 
+## Hướng dẫn cách design Frontend
 
-## Hướng dẫn cách design Frontend 
-- Variant là các biến thể của một component. Khi truyền các thông tin khác nhau vào cùng 1 props, nó sẽ 
-cho ra nhiều loại UI khác nhau. Chúng ta viết ít code hơn và chuyên nghiệp hơn, dễ dàng tái sử dụng hơn 
-- Ưu tiên design các biến thể (variant) trước (Ví dụ button)  
-### Cú pháp cn 
-- cn là tailwind merge, một hàm dùng để gộp các class của tailwind lại với nhau 
+- Variant là các biến thể của một component. Khi truyền các thông tin khác nhau vào cùng 1 props, nó sẽ
+  cho ra nhiều loại UI khác nhau. Chúng ta viết ít code hơn và chuyên nghiệp hơn, dễ dàng tái sử dụng hơn
+- Ưu tiên design các biến thể (variant) trước (Ví dụ button)
+
+### Cú pháp cn
+
+- cn là tailwind merge, một hàm dùng để gộp các class của tailwind lại với nhau
+
 ```
-bun add clsx tailwind-merge 
+bun add clsx tailwind-merge
 ```
-- Khai báo cn trong folder lib/uttls.ts. 
-### Cú pháp cva 
-- Là một cách làm hiện đại để khai báo và sử dụng biển thể 
+
+- Khai báo cn trong folder lib/uttls.ts.
+
+### Cú pháp cva
+
+- Là một cách làm hiện đại để khai báo và sử dụng biển thể
+
 ```js
 const buttonVariants = cva(
-  "inline-flex text-black flex items-center justify-between", 
-  variants: { ... }, 
+  "inline-flex text-black flex items-center justify-between",
+  variants: { ... },
   compoundVariants: [
-    { ... }, 
+    { ... },
     { ... }
-  ], 
+  ],
   defaultVariant: {
-    variant : primary, 
-    size: md, 
-    color: white .... 
+    variant : primary,
+    size: md,
+    color: white ....
   }
-) 
+)
 ```
 
-## Sử dụng trong component 
+## Sử dụng trong component

@@ -2,18 +2,18 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
     /* config options here */
-    images : {
-        remotePatterns : [
+    images: {
+        remotePatterns: [
             {
-                protocol: 'https', 
-                hostname: 'drive.google.com'
-            }, 
+                protocol: 'https',
+                hostname: 'drive.google.com',
+            },
             {
-                protocol: 'https', 
-                hostname: 'raw.githubusercontent.com'
-            }
-        ]
-    }
+                protocol: 'https',
+                hostname: 'raw.githubusercontent.com',
+            },
+        ],
+    },
 };
 
 export default nextConfig;

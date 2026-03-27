@@ -14,6 +14,7 @@ import {
     containerAnimation,
     itemContainerAnimation,
 } from './home.animations';
+import { AppearAnimation } from '../../animations/shared';
 const HomeSection = () => {
     const MotionImage = motion(Image);
     return (
@@ -71,7 +72,17 @@ const HomeSection = () => {
                     }}
                 />
             </motion.div>
-            <div className="my-10">
+            <motion.div 
+                className="my-10"
+                initial={{ opacity : 0, scale: 0 }}
+                animate={{ opacity : 1 , scale : 1 }} 
+                transition={{
+                    type: 'spring', 
+                    stiffness : 200, 
+                    damping: 20, 
+                    duration: 0.4 
+                }}
+            >
                 <Heading className="mb-4">skills</Heading>
                 <div className="w-full grid grid-cols-5 grid-rows-1 justify-between gap-5 gap-y-6 items-start">
                     {mySkills.map((skill, index) => {
@@ -84,7 +95,7 @@ const HomeSection = () => {
                         );
                     })}
                 </div>
-            </div>
+            </motion.div>
             <div className="mx-auto my-6">
                 <Marquee
                     text=" Javascript </> Java Python Postgres-SQL ☁︎ ˚｡⋆｡˚☽˚｡⋆ "
@@ -96,7 +107,12 @@ const HomeSection = () => {
                     reverse={true}
                 />
             </div>
-            <div className="flex flex-col gap-4 items-start w-fit">
+            <motion.div
+                variants={AppearAnimation}
+                initial="initial"
+                whileInView={'visible'}
+                className="flex flex-col gap-4 items-start w-fit"
+            >
                 <Heading className="mb-4">my-fun-facts</Heading>
                 <div className="flex gap-4 w-fit">
                     <FunfactItem
@@ -134,7 +150,7 @@ const HomeSection = () => {
                         fact="I always wanna become a Hero"
                     />
                 </div>
-            </div>
+            </motion.div>
         </LandingLayout>
     );
 };

@@ -1,12 +1,15 @@
+'use client';
 import { NavbarMenuItems } from '@/src/shared/constants/app.constants';
 import LandingLayout from '../../layouts/LandingLayout';
 import Heading from '@/src/shared/components/Header';
 import ProjectCard from '../CompleteProject';
+import { motion } from 'framer-motion';
 import {
     CompleteProjects,
     SmallProjects,
 } from '@/src/shared/constants/me.constants';
 import SmallProjectCard from '../SmallProject';
+import { AppearAnimation } from '../../animations/shared';
 const ProjectSection = () => {
     return (
         <LandingLayout
@@ -15,7 +18,12 @@ const ProjectSection = () => {
             id={NavbarMenuItems[1].link}
             className="my-18"
         >
-            <div className="w-full my-8 flex flex-col gap-8">
+            <motion.div
+                className="w-full my-8 flex flex-col gap-8"
+                variants={AppearAnimation}
+                initial="initial"
+                whileInView={'visible'}
+            >
                 <Heading>complete-apps</Heading>
                 <div className="w-full grid grid-cols-3 gap-5 justify-between">
                     {CompleteProjects.map((project, index) => (
@@ -26,15 +34,22 @@ const ProjectSection = () => {
                             description={project.description}
                             techstack={project.techstack}
                             visit={project.visit}
+                            detailDescription={project.detailDescription}
                         />
                     ))}
                 </div>
-            </div>
-            <div className="w-full my-8 flex flex-col gap-8">
+            </motion.div>
+            <motion.div
+                variants={AppearAnimation}
+                initial="initial"
+                whileInView={'visible'}
+                className="w-full my-8 flex flex-col gap-8"
+            >
                 <Heading>small-projects</Heading>
                 <div className="w-full grid grid-cols-3 gap-5 justify-between">
-                    {SmallProjects.map((project) => (
+                    {SmallProjects.map((project, index) => (
                         <SmallProjectCard
+                            key={index}
                             name={project.name}
                             techstack={project.techstack}
                             description={project.description}
@@ -42,7 +57,7 @@ const ProjectSection = () => {
                         />
                     ))}
                 </div>
-            </div>
+            </motion.div>
             <div className="w-full p-4 border border-white rounded-sm shadow-inner">
                 <Heading>snake-contributions</Heading>
                 <img

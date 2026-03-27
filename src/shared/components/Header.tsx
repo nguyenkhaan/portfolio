@@ -5,7 +5,7 @@ const headerVariants = cva('font-md cursor-pointer', {
     variants: {
         size: {
             md: 'text-lg',
-            large: 'md:text-xl xl:text-[32px] text-base'
+            large: 'md:text-xl xl:text-[32px] text-base',
         },
         typoColor: {
             white: 'text-white',

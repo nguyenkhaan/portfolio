@@ -1,8 +1,8 @@
 'use client';
 import { motion, Variants } from 'framer-motion';
-const Marquee = ({ text = '', speed = 0  , reverse = false }) => {
+const Marquee = ({ text = '', speed = 0, reverse = false }) => {
     const doubleText = `${text} ${text} ${text} ${text}`;
-    const to = (reverse? ["-100%",0] : [0,"-100%"])
+    const to = reverse ? ['-100%', 0] : [0, '-100%'];
     const duration = doubleText.length / speed;
     const framerVariants: Variants = {
         marquee: {
@@ -14,7 +14,6 @@ const Marquee = ({ text = '', speed = 0  , reverse = false }) => {
                 ease: 'linear',
             },
         },
-
     };
     return (
         <div className="w-[200vw] -translate-x-1/2 overflow-x-hidden flex whitespace-nowrap select-none my-3 overflow-y-hidden">
@@ -22,7 +21,7 @@ const Marquee = ({ text = '', speed = 0  , reverse = false }) => {
                 className="flex shrink-0 items-center"
                 variants={framerVariants}
                 animate="marquee"
-                whileHover={{animationPlayState: "paused"}}
+                whileHover={{ animationPlayState: 'paused' }}
             >
                 <span className="marquee-text py-2 leading-none text-7xl font-black uppercase tracking-wider px-4">
                     {doubleText}

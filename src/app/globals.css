@@ -1,29 +1,32 @@
 @import 'tailwindcss';
 
 @theme {
-    --color-bg: #282d33; 
-    --color-primary: #c679db; 
-    --color-primary-400: color-mix(in srgb, var(--color-primary), transparent 20%); 
-    --color-pink: #b57bc9; 
-    --color-gray: #abb2bf; 
-    --color-text: white; 
-    --color-border: white; 
+    --color-bg: #282d33;
+    --color-primary: #c679db;
+    --color-primary-400: color-mix(
+        in srgb,
+        var(--color-primary),
+        transparent 20%
+    );
+    --color-pink: #b57bc9;
+    --color-gray: #abb2bf;
+    --color-text: white;
+    --color-border: white;
 }
-
 
 .label-input:focus + span {
-    position: absolute; 
-    background: var(--color-bg); 
-    top: -1px 
+    position: absolute;
+    background: var(--color-bg);
+    top: -1px;
 }
 .fill {
-    position: absolute; 
-    background: var(--color-bg); 
-    top: -1px 
+    position: absolute;
+    background: var(--color-bg);
+    top: -1px;
 }
 .marquee-text {
     -webkit-text-stroke: 4px var(--color-text);
-    color: transparent; 
+    color: transparent;
     font-size: 120px;
     paint-order: stroke;
 }

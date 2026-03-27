@@ -6,7 +6,7 @@ import { cn } from '../lib/ultis';
 
 const TextAreaVariants = cva(
     [
-        'w-full h-30',  
+        'w-full h-30',
         'p-2 resize-none',
         'border',
         'outline-none',
@@ -35,7 +35,7 @@ export interface TextAreaProps
 const TextArea = ({ className, typoColor, ...props }: TextAreaProps) => {
     return (
         <textarea
-            placeholder='Message...'
+            placeholder="Message..."
             className={cn(TextAreaVariants({ typoColor }), className)}
             {...props}
         />
